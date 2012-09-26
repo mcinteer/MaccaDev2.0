@@ -11,14 +11,21 @@ namespace MaccaDev;
 class Model {
 	// TODO - Insert your code here
 	
-	var $usersArray;
+	var $usersArr = array();	
+	var $addressArr = array();
+	var $functionalityArr = array();
+	var $functionalityGroupArr = array();
+	var $userGroupArr = array();
+	var $userGroupUsersArr = array();
+	var $userPermissionsArr = array();
+	
 	var $dbConnectionStr;
 	
 	function __construct()
 	{
-		global $usersArray;
+		global $usersArr;
 		
-		$usersArray = array();
+		$usersArr = array();
 		
 		return $this;
 		// TODO - Insert your code here
@@ -31,18 +38,43 @@ class Model {
 		return dbConnStr;
 	}
 	
-	function addUser($id, $emailAddress, $password, $masterUsr, $firstName, $lastName, $postalAddressID, $physicalAddressID, $active)
+	function addUser($user)
 	{
-		GLOBAL $usersArray;
-		
-		$user = new User($id, $emailAddress, $password, $masterUsr, $firstName, $lastName, $postalAddressID, $physicalAddressID, $active, $this);
-		
-		$usersArray[]= $user;
-		return $user;
+		global $usersArr;		
+		$usersArr[]= $user;		
 	}
 	
+	function addAddress($add)
+	{
+		global $addressArr;
+		$addressArr[] = $add;
+	}
 	
-
+	function addFunctionality($func)
+	{
+		global $functionalityArr;
+		$functionalityArr[] = $func;
+	}
+	function addFunctionalityGroup($funcGroup)
+	{
+		global $functionalityGroupArr;
+		$functionalityGroupArr[] = $funcGroup;
+	}
+	function addUserGroup($userGroup)
+	{
+		global $userGroupArr;
+		$userGroupArr[] = $userGroup;
+	}
+	function addUserGroupUsers($userGrUser)
+	{
+		global $userGroupUsersArr;
+		$userGroupUsersArr[] = $userGrUser;
+	}
+	function addUserPermissionsArr($perm)
+	{
+		global $userPermissionsArr;
+		$userPermissionsArr[] = $perm;
+	}
 }
 
 ?>

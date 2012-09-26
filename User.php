@@ -48,41 +48,29 @@ class User {
 		$postalAddressID = $postalAddressIDParam;
 		$physicalAddressID = $physicalAddressIDParam;
 		$active = $activeParam;
-		$currentModel = $currentModelParam;
-		
-		
-		
+		$currentModel = $currentModelParam;		
 		// TODO - Insert your code here
 	}
 	
-	function addAddress($IDParam, $StreetNumberParam, $Line1Param, $Line2Param, $SuburbParam, $CityParam, $StateParam, $CountryParam, $currentModelParam)
+	function addAddress($address)
 	{
 		global $addressesArray;
 		
-		$address = new Address($IDParam, $StreetNumberParam, $Line1Param, $Line2Param, $SuburbParam, $CityParam, $StateParam, $CountryParam, $currentModelParam);
-		
-		$addressesArray[]= $address;
-		return $address;
+		$addressesArray[] = $address;
 	}
 	
-	function addUserGroupUsers($Usr_ID, $UsrGr_ID, $UsrGrUsrs_Active, $currentModelParam)
+	function addUserGroupUsers($userGroupUsers)
 	{
 		global $userGroupUsersArray;
 		
-		$userGroupUser = new UserGroupUsers($Usr_ID, $UsrGr_ID, $UsrGrUsrs_Active, $currentModelParam);
-		
-		$userGroupUsersArray[] = $userGroupUser;
-		return $userGroupUser;
+		$userGroupUsersArray[] = $userGroupUsers;
 	}
 	
-	function addUserPermissions($Usr_IDParam, $FuncGr_IDParam, $AllowCreateParam, $AllowReadParam, $AllowUpdateParam, $AllowDeleteParam, $currentModelParam)
+	function addUserPermissions($permission)
 	{
 		global $userPermissionsArray;
 		
-		$userPermissions = new UserPermissions($Usr_IDParam, $FuncGr_IDParam, $AllowCreateParam, $AllowReadParam, $AllowUpdateParam, $AllowDeleteParam, $currentModelParam);
-		
-		$user[] = $userPermissions;
-		return $userPermissions;
+		$userPermissionsArray[] = $permission;
 	}
 }
 

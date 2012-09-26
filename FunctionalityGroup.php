@@ -15,7 +15,7 @@ class FunctionalityGroup {
 	var $FuncGr_Name;
 	var $FuncGr_Desc;
 	var $currentModel;
-	var $FunctionalitiesArray;
+	var $functionalitiesArray;
 	
 	function __construct($FuncGr_IDParam, $FuncGr_NameParam, $FuncGr_DescParam, $currentModelParam) {
 		global $FuncGr_ID;
@@ -30,14 +30,11 @@ class FunctionalityGroup {
 		// TODO - Insert your code here
 	}
 	
-	function addFunctionality($Func_IDParam, $Func_NameParam, $FuncGr_IDParam, $Func_TypeParam, $Func_DescParam, $currentModelParam)
+	function addFunctionality($func)
 	{
-		global $FunctionalitiesArray;
+		global $functionalitiesArray;
 		
-		$Functionality = new Functionality($Func_IDParam, $Func_NameParam, $FuncGr_IDParam, $Func_TypeParam, $Func_DescParam, $currentModelParam);
-		
-		$FunctionalitiesArray[] = $Functionality;
-		return $Functionality;
+		$functionalitiesArray[] = $func;
 	}
 }
 
